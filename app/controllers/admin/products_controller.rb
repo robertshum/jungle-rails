@@ -1,5 +1,8 @@
 class Admin::ProductsController < ApplicationController
 
+  # basic http authentication
+  include AuthenticationConcern
+
   def index
     @products = Product.order(id: :desc).all
   end
