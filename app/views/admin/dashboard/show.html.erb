@@ -1,2 +1,44 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<br>
+<h1>Admin Dashboard</h1>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+<div class="col">
+<div class="card border-primary mb-3">
+    <div class="card-header">Total Products: <%= @product_count %></div>
+    <div class="card-body">
+      <p class="card-text">Total amount of products on this site.  <a href="/admin/products">Click here to manage products.</a></p>
+    </div>
+  </div>
+</div>
+  <div class="col">
+  <div class="card border-primary mb-3">
+      <div class="card-header">Total Categories: <%= @category_count %></div>
+      <div class="card-body">
+        <p class="card-text">Total amount of categories on this site.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+  <div class="card border-info mb-3">
+      <div class="card-header">Average Order: <%= humanized_money_with_symbol @avg_order_amount / 100.0 %></div>
+      <div class="card-body">
+        <p class="card-text">The average purchase amount from all orders.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+  <div class="card border-info mb-3">
+      <div class="card-header">Minimum Order: <%= humanized_money_with_symbol @min_order_amount / 100.0 %></div>
+      <div class="card-body">
+        <p class="card-text">The lowest purchase amount from a single order.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+  <div class="card border-info mb-3">
+      <div class="card-header">Maximum Order: <%= humanized_money_with_symbol @max_order_amount / 100.0 %></div>
+      <div class="card-body">
+        <p class="card-text">The highest purchase amount from a single order.</p>
+      </div>
+    </div>
+  </div>
+</div>
