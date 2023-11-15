@@ -2,9 +2,12 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+
+    # Gets line items from AR where the order id matches
+    @line_items = LineItem.where(order_id: params[:id])
   end
 
-  def create
+def create
     charge = perform_stripe_charge
     order  = create_order(charge)
 
