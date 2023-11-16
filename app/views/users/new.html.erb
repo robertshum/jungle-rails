@@ -1,88 +1,59 @@
-<h1>Signup!</h1>
-
-<%= form_for @user do |form| %>
-
-  <% if form.object.errors.any? %>
-  <div class="alert alert-danger">
-    <strong>The following errors prevented saving:</strong>
-    <ul>
-      <% form.object.errors.full_messages.each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
-  First Name: <%= form.text_field :first_name %>
-  Last Name: <%= form.text_field :last_name %>
-  Email: <%= form.text_field :email %>
-  Password: <%= form.password_field :password %>
-  Password Confirmation: <%= form.password_field :password_confirmation %>
-  <%= form.submit "Submit" %>
-
-<% end %>
-
-
-<% if false %>
-# WHY IS THERE NO PROPER COMMENTING IN ERB FILES WHAT THE HECK.
-<section class="users-new">
-
+<section class="login">
   <header class="page-header">
-    <h1>Sign Up</h1>
+  <h1>Sign up, for all plant lovers 🌵🌿🌱</h1>
   </header>
 
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-1">
-      <%= form_for [:admin, @product] do |form| %>
+  <%= form_for @user do |form| %>
 
-        <% if form.object.errors.any? %>
-          <div class="alert alert-danger">
-            <strong>The following errors prevented saving:</strong>
-            <ul>
-              <% form.object.errors.full_messages.each do |error| %>
-                <li><%= error %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
+    <% if form.object.errors.any? %>
+      <div class="alert alert-danger">
+        <strong>The following errors prevented saving:</strong>
+        <ul>
+          <% form.object.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-        <div class="form-group">
-          <%= form.label :name %>
-          <%= form.text_field :name, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= form.label :description %>
-          <%= form.text_area :description, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= form.label :category %>
-          <%= form.select :category_id, options_from_collection_for_select(Category.all.order(:name), :id, :name), { include_blank: true }, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= form.label :quantity %>
-          <%= form.number_field :quantity, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= form.label :price %>
-          <%= form.text_field :price, class: 'form-control' %>
-        </div>
-
-
-
-        <div class="form-group">
-          <%= form.label :image %>
-          <%= form.file_field :image %>
-        </div>
-
-        <%= form.submit 'Create Product', class: 'btn btn-primary' %>
-      <% end %>
+    <div class="form-group">
+    <div class="row">
+      <div class="col-sm-6">
+        <%= label_tag :first_name, 'First Name' %>
+        <%= form.text_field :first_name, class: 'form-control' %>
+      </div>
+      <div class="col-sm-6">
+        <%= label_tag :last_name, 'Last Name' %>
+        <%= form.text_field :last_name, class: 'form-control' %>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-sm-6">
+        <%= label_tag :email, 'Email' %>
+        <%= form.text_field :email, class: 'form-control' %>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-sm-6">
+        <%= label_tag :password, 'Password' %>
+        <%= form.password_field :password, class: 'form-control' %>
+      </div>
+      <div class="col-sm-6">
+        <%= label_tag :password_confirmation, 'Confirm Password' %>
+        <%= form.text_field :password_confirmation, class: 'form-control' %>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-sm-12">
+        <br>
+        <%= submit_tag "Submit", class: 'btn btn-primary' %>
+      </div>
     </div>
   </div>
 
-</section>
+  <% end %>
 
-<% end %>
+</section>

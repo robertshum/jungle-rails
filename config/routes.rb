@@ -28,6 +28,9 @@ Rails.application.routes.draw do
     resources :categories, only: [:index, :create, :new]
   end
 
+  # catch all to redirect to index (better than the nasty rails error page)
+  match '*path', to: 'products#index', via: :all
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
