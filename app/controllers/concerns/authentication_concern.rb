@@ -20,8 +20,8 @@ module AuthenticationConcern
     # 4.) redirects them to original page if passed.
     # All that in 3-4 lines of code...
     authenticate_or_request_with_http_basic do |username, password|
-      # need to explicity return.  Ruby doesn't process below as a single line...despite no new line char.
-      return(username == ENV['TEMP_ADMIN_USER_NAME'] && password == ENV['TEMP_ADMIN_PASSWORD'])
+      # not too sure why wrapping this in a return will result in a error...
+      username == ENV['TEMP_ADMIN_USER_NAME'] && password == ENV['TEMP_ADMIN_PASSWORD']
     end
   end
 end
