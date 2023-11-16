@@ -13,7 +13,7 @@
         <span>$<%= @product.price %></span>
       </div>
       <div class="price">
-        <% if @product.quantity == 0
+        <% if empty_stock?(@product) 
           btnClass = 'btn disabled'
         else
           btnClass = 'btn'
