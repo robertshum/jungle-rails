@@ -6,7 +6,14 @@ class ApplicationController < ActionController::Base
 
   def current_user
     # return current_user if not nill, or find the user from the session via user id, if the session user id is not nil
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+
+    begin
+      @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    rescue ActiveRecord::RecordNotFound => e
+      # this happens when we delete the user but the session is still referencing our user id
+      # Set @current_user to nil
+      @current_user = nil
+    end
   end
 
   # views have access to this now
