@@ -38,9 +38,34 @@ def create
     )
   end
 
+  # stripe has already processed. Safe to send email
   def create_order(stripe_charge)
+
+    order_details = []
+
+    # going through each cart and creating a order details for email
+    enhanced_cart.each do |entry|
+      product = entry[:product]
+      quantity = entry[:quantity]
+    
+      order_details << {
+        product: product.name,
+        quantity: quantity,
+        item_price: product.price,
+        total_price: product.price * quantity
+      }
+    end
+
+    user_email = 'Guest (no email)'
+    if current_user
+      user_email = current_user.email
+      notifier_mailer = NotifierMailer.send_order_conf(current_user, order_details)
+      notifier_mailer.deliver_now
+      puts 'delivering mail now'
+    end
+
     order = Order.new(
-      email: params[:stripeEmail],
+      email: user_email,
       total_cents: cart_subtotal_cents,
       stripe_charge_id: stripe_charge.id, # returned by stripe
     )
