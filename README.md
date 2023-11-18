@@ -32,17 +32,24 @@ main - //demo ready
 
 Other branches are features / bugfixes / css touchups.
 
-# Final Product / Youtube Demo
+# Final Product
+
+<img align="left" src="https://github.com/robertshum/jungle-rails/blob/main/project_media/images/main01.png">
 
 !["Main Page"](https://github.com/robertshum/jungle-rails/blob/main/project_media/images/main01.png)
 
+
 !["Input Validation"](https://github.com/robertshum/jungle-rails/blob/main/project_media/images/inputvalidation01.png)
+
 
 !["Email Order"](https://github.com/robertshum/jungle-rails/blob/main/project_media/images/email01.png)
 
+
 !["Cart"](https://github.com/robertshum/jungle-rails/blob/main/project_media/images/cart01.png)
 
+
 !["Dashboard 1"](https://github.com/robertshum/jungle-rails/blob/main/project_media/images/dashboard01.png)
+
 
 !["Dashboard 2"](https://github.com/robertshum/jungle-rails/blob/main/project_media/images/dashboard02.png)
 
