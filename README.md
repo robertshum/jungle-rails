@@ -35,22 +35,28 @@ Other branches are features / bugfixes / css touchups.
 # Final Product
 
 !["Main Page"](https://github.com/robertshum/jungle-rails/blob/main/project_media/images/main01.png)
-  
+
+&ensp;
 
 !["Input Validation"](https://github.com/robertshum/jungle-rails/blob/main/project_media/images/inputvalidation01.png)
-  
+
+&ensp;
 
 !["Email Order"](https://github.com/robertshum/jungle-rails/blob/main/project_media/images/email01.png)
   
+&ensp;
 
 !["Cart"](https://github.com/robertshum/jungle-rails/blob/main/project_media/images/cart01.png)
   
+&ensp;
 
 !["Dashboard 1"](https://github.com/robertshum/jungle-rails/blob/main/project_media/images/dashboard01.png)
-  
-  
+
+&ensp;
+
 !["Dashboard 2"](https://github.com/robertshum/jungle-rails/blob/main/project_media/images/dashboard02.png)
 
+&ensp;
 
 ## Database
 
