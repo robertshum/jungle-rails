@@ -2,7 +2,7 @@
 
 describe('Jungle Web App', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/');
+    cy.visitHomePage();
   });
 
   it("There are products on the page", () => {
