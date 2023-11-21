@@ -10,7 +10,9 @@ describe('Jungle Web App', () => {
   });
 
   it("User clicks on Giant Tea", () => {
-    cy.contains(".products article", "Giant Tea")
+    cy.get(".products article")
+      // 2nd element
+      .eq(1)
       .click();
 
     cy.get("article.product-detail").should("be.visible");
