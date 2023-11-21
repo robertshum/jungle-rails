@@ -13,6 +13,7 @@ Jungles is a webapp for a ficticious online store that sells household plants.  
 * Admin dashboard to track sales orders and product / category totals.
 * User authentication using sessions.
 * Various bug fixes / enhancements regarding inconsistent displays.
+* Uses Cypress and Rspec for model / feature testing.
 
 Finished Stretch Goals:
 
@@ -92,3 +93,15 @@ Update the .env file:
 * SMTP must be set (for gmail it's smtp.gmail.com)
 * Email and password login (could be a personal one)
   * if 2FA enabled, you have to add a 'App Password' under your profile (for Google), and use that as a password for your .env.
+
+## Running Tests
+* Running Model Tests using Rspec.  From the root folder of the project:
+```bash
+bin/rspec
+```
+
+* Running Feature/e2e Spec Tests using Cypress.  From the root folder of the project:
+```bash
+bin/rails s -b 0.0.0.0 -e test
+bin/rails cypress:open
+```
