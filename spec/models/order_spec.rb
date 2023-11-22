@@ -41,8 +41,6 @@ RSpec.describe Order, type: :model do
     end
     # pending test 1
     it 'deducts quantity from products based on their line item quantities' do
-
-      # TODO: Implement based on hints below
       # 1. initialize order with necessary fields (see orders_controllers, schema and model definition for what is required)
       @order = Order.new(stripe_charge_id: stripe_charge_id)
       # 2. build line items on @order
@@ -102,5 +100,32 @@ RSpec.describe Order, type: :model do
       # 5. use RSpec expect syntax to assert their new quantity values
       expect(@product3.quantity).to be(4)
     end
+  
+    # pending test 3
+    it 'does not deduct quantity from products when the quantity dips below 0' do
+      # manually save.  We will expect an error when trying to save an order
+      @product1.save
+
+      # 1. initialize order with necessary fields (see orders_controllers, schema and model definition for what is required)
+      @order = Order.new(stripe_charge_id: stripe_charge_id)
+      # 2. build line items on @order
+      @order.line_items.new(
+        product: @product1,
+        quantity: 6,
+        item_price: @product1.price,
+        total_price: @product1.price * 6
+      )
+      
+      # doesn't matter for this test
+      @order.total_cents = 9999
+      # 3. save! the order - ie raise an exception if it fails (expected)
+      expect { @order.save! }.to raise_error(ActiveRecord::RecordInvalid)
+      # 4. reload products to have their updated quantities
+      @product1.reload
+      # 5. use RSpec expect syntax to assert the quantity to be the same
+      expect(@product1.quantity).to be(5)
+    end
+
   end
+
 end
