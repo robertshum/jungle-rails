@@ -18,12 +18,16 @@ Jungles is a webapp for a ficticious online store that sells household plants.  
 Finished Stretch Goals:
 
 * Emailer to send customers a summary of their order (see pictures).
+* Orders will update the inventory in the backend.
 * Using bootstrap CSS to make designs more consistent.
 * Input validation for all input forms.
 
 Unfinished Stretch Goals:
 
-* RSpec testing.
+* Additional RSpec testing.
+* Continued development of Inventory Epic.
+  * Needs to disable creation of stripe processing / orders if quantity is not disabled.
+  * Disable front-end from allowing users to add quantity of item than what is available.
 
 ## Branches
 

@@ -4,7 +4,7 @@ RSpec.describe Order, type: :model do
 
   let(:category) { Category.create(name: 'Test Category') }
   let(:image) {
-    Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, '/app/assets/images/plants.jpg')))
+    File.open(Rails.root.join('db', 'seed_assets', 'plante_2.jpg'))
   }
   let(:stripe_charge_id) {"test_stripe_charge_id"}
 

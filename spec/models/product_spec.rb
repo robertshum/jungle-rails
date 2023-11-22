@@ -5,14 +5,13 @@ RSpec.describe Product, type: :model do
 
     let(:category) { Category.create(name: 'Test Category') }
     let(:image) {
-      Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, '/app/assets/images/plants.jpg')))
+      File.open(Rails.root.join('db', 'seed_assets', 'plante_2.jpg'))
     }
 
     context 'create product with all fields filled' do
 
       # memoize helper method 'let'.  When 'category' is referenced,
       # it will return the Category.create...
-      # Rack::Test::UploadedFile used to simulate an upload
       it 'returns a product with no errors' do
         product = Product.new(
           name: 'Test Product',
